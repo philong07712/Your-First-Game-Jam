@@ -53,9 +53,10 @@ public class Debris : MonoBehaviour
     {
         audioSrc = GetComponent<AudioSource>();
         renderFade = GetComponent<RendererFade>();
-        float rotate = Random.Range(0, 180);
+        float rotate = Random.Range(0, 90);
         speed = Random.Range(minSpeed, maxSpeed);
-        transform.Rotate(rotate, rotate, 0);
+        // transform.Rotate(rotate, 0, 0);
+        transform.Rotate(90, 90, 0);
         zPosition = transform.position.z;
     }
 
@@ -67,7 +68,9 @@ public class Debris : MonoBehaviour
     void Update()
     {
         Vector3 newPosition = transform.position;
+        // newPosition += transform.forward * speed * Time.deltaTime;
         newPosition += transform.forward * speed * Time.deltaTime;
+
         newPosition.z = zPosition;
         transform.position = newPosition;
         if (isDestroyed)
