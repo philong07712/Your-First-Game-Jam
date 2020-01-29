@@ -4,17 +4,17 @@ public class GameManager : MonoBehaviour
 {
     bool isEnd = false;
     public float restartDelay = 2.0f;
-    private GameManager()
+    public GameObject completeLevelUI;
+    public void winLevel()
     {
-
+        Debug.Log("Win Level!");
+        completeLevelUI.SetActive(true);
     }
-
     public void GameOver()
     {
         if (!isEnd)
         {
             isEnd = true;
-            Debug.Log("GameOver");
             Invoke("Restart", 2.0f);
         }
     }
@@ -23,4 +23,5 @@ public class GameManager : MonoBehaviour
         isEnd = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    
 }

@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
         }
         if (rigidB.position.y < -1f)
         {
-            Debug.Log(rigidB.position.y);
             FindObjectOfType<GameManager>().GameOver();
         }
     }
