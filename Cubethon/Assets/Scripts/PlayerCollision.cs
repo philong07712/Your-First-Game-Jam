@@ -19,8 +19,8 @@ public class PlayerCollision : MonoBehaviour
     {
         if (collisionInfo.collider.tag == "Obstacle")
         {
-            Debug.Log(collisionInfo.collider.name);
             playerMove.enabled = false;
+            FindObjectOfType<GameManager>().GameOver();
         }
     }
 }

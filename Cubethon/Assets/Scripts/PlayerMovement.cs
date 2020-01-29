@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Hello World");
     }
 
     // Update is called once per frame
@@ -29,6 +28,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("s"))
         {
             rigidB.AddForce(0, 0, -force * Time.deltaTime);
+        }
+        if (rigidB.position.y < -1f)
+        {
+            Debug.Log(rigidB.position.y);
+            FindObjectOfType<GameManager>().GameOver();
         }
     }
 }
